@@ -103,3 +103,10 @@ A port is an identifier for a specific process running on a host. It is represen
 - 0-1023 --> well known ports (http: 80, FTP: 20-21, SMTP: 25...)
 - 1024-49151 --> registered ports (by private entities like Mircosoft, IBM etc...), sometimes used for _ephemeral_ ports
 - 49152-65535 --> dynamic ports/private ports, cannot be registered for a specific use. Can be customized for services or allocated as _ephemeral_ ports
+
+### DNS (Domain Name Systen) ###
+A distributed database that translates domain names to an IP address, which can then be used to make a request to a server
+- Makes accessing webpages easier since IP addresses do not need to be memorized
+- Computers that store DNS databases are called DNS servers
+- Organized in a hierachical structure. If one DNS server doesn't have record of a domain name, it routes the request to a server higher up
+- Devices typically have a "DNS cache", which is a temporary storage of recent DNS lookups that have been made so that it has accept to those IPs immediately
