@@ -45,10 +45,12 @@ Two or more devices connected in a way in which they can communicate data
    - A bottleneck could also be the a point in the connection with congestion, with is certainly not a device
 
 ## How do lower level protocols operate ##
-
-### Data Link: Ethernet Protocol ###
+### Data Link layer ###
+This layer is responsible for allowing the more logical layers to interface with physical with the physical. Its protocols are concerned with identifying physical devices to send data to
+### Ethernet Protocol ###
 **PDU** - Ethernet frame
-- Encapsulates data from the Network layer above (lowest layer where encapsulation takes place)
+- Encapsulates data from the Network layer above (IP packet) (lowest layer where encapsulation takes place)
+- Has a header, payload, and a trailer
 - The payload of the PDU at this layer is essentially a stream of bits
   - The ethernet protocol adds structure to this binary data
 
@@ -63,3 +65,34 @@ Two or more devices connected in a way in which they can communicate data
 There are static ID addresses for network enabled devices (devices that have a NIC card)
 - Local network devices like switches have MAC tables that they use to route data to the correct device using MAC source address and destination address, specified by the Ethernet protocol
   - The switch will figure out the MAC addresses through communication with the devices on the network, and map them to a port on itself
+
+### Network Layer: Internet Protocol (IP) ###
+This layer and its protocols are concerned with the transfer of data between networks
+
+### Internet Protocol (IP) ###
+**PDU** - is called a data packet/packet
+**PDU - Data packets/packets**
+- Encapsulates data from the transport layer (typically a TCP segment or UDP datagram)
+- Has a header and a data payload
+
+**Important Fields**
+Version - indicates the version of IP e.g IPv4 vs IPv6
+ID, Flags, Fragment Offset: - If a piece of data has to be fragmented because it is too large, these flags will help it be reassembled
+TTL - Time to live. If a packet lives too long without reaching a destination, it will be dropped
+Protocol - Indicates protocol used for the payload (TCP vs UDP)
+Checksum - Sender generates value using data to be sent and alogirthm. Recipient uses same algorithm or recieved data. If values don't match, packet is dropped
+  - This is used so that corrupted or incomplete data is identified
+Source address - 32 bit IP address of sender
+Destination address: 32 bit IP address of recipient
+
+**IP Addresses (IPv4)**
+IP addresses are addresses used to identify networks
+- They are logical in nature, and hierarchical
+- They are not tied to a specific devise, but are assigned as needed to an available range designated to the network
+  - This range is defined within a hierarchy, and subnetworks of the main network fall within this range, as well as each device
+  - Splitting of a network into small subnetworks is called **subnetting**
+- The addresses are 32 bits long and are divided into four sections of 8 bits
+  - In decimal format, each of these four sections range from 0-255
+
+e.g if a networks address is 109.168.172.0, the range of IPs it can assign is 109.168.172.1 --> 109.168.172.254
+  **- This means we can use the first 3 sections of an IP address to determine which network it belongs to**
