@@ -110,3 +110,12 @@ A distributed database that translates domain names to an IP address, which can 
 - Computers that store DNS databases are called DNS servers
 - Organized in a hierachical structure. If one DNS server doesn't have record of a domain name, it routes the request to a server higher up
 - Devices typically have a "DNS cache", which is a temporary storage of recent DNS lookups that have been made so that it has accept to those IPs immediately
+
+## Client-Server model of web interactions, and role of HTTP as a protocol within it ##
+- client - the most common client is an application called a _web browser_
+- server - the content being requested by the client is located on a remote computer called a _server_
+  - These are typically just computers capable of handling inbound requests
+  - Job is to send a response to an inbound request
+- HTTP (Hypertext transfer protocol) - A system of rules that serve as a link between applications and the transfer of hypertext documents
+  - Handles structure of the message that a host sends to another host
+- Request reponse protocol - client makes request to server using HTTP and waits for the response
