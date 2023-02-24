@@ -15,10 +15,11 @@ Two or more devices connected in a way in which they can communicate data
 
 ### Latency ###
  A measure of time that it takes for data to get from one point to another (typically measured in milliseconds)
- - Can be thought of as a measure of delay for data transfer
+ - Can be thought of as a measure of delay for data transfer, as well as sending preamble and SFD
 
 **Propogratin delay** - amount of time a message takes to travel from sender to reciever (strictly the time it takes, based on distance / speed of signal medium)
 **Transmission delay** - Time is takes for message to move from network device to transmission medium (wire, fiber optic, radio wave etc...)
+- Example of this is the interframe gap at the data-link layer
 **Processig delay** - Time it takes for a device to process a message
 - A router may need to process an IP packet (look at its header, IP destination) before routing it along
 - A switch may need to process an ethernet frame (look at header, MAC address) before moving it along
@@ -42,3 +43,23 @@ Two or more devices connected in a way in which they can communicate data
  - The slowest device in the connection is referred to as the "bottleneck"
    - This doesn't have to be a network device, as the bottleneck could be something like a wire or cable as well (CAT5 ethernet for example)
    - A bottleneck could also be the a point in the connection with congestion, with is certainly not a device
+
+## How do lower level protocols operate ##
+
+### Data Link: Ethernet Protocol ###
+**PDU** - Ethernet frame
+- Encapsulates data from the Network layer above (lowest layer where encapsulation takes place)
+- The payload of the PDU at this layer is essentially a stream of bits
+  - The ethernet protocol adds structure to this binary data
+
+**Important fields in ethernet frame**
+- Source and Destination MAC address - 6 bytes long each. Says which device sent the data, and which it is to be delivered (within a local network)
+ - Note that **MAC addresses** are "burined-in" to any network enabled device by the manufacturere. Essentally an ID number
+- Length - Size of the data payload in bytes
+- Frame Check Sequence - A checksum created by sender of data with an algorithm. Reciever uses same algoirthm on the data to generate checksum, and compares to sender
+ - If the checksums are different, data has been losses or corrupted, and the frame is dropped
+
+**Notes about MAC addresses**
+There are static ID addresses for network enabled devices (devices that have a NIC card)
+- Local network devices like switches have MAC tables that they use to route data to the correct device using MAC source address and destination address, specified by the Ethernet protocol
+  - The switch will figure out the MAC addresses through communication with the devices on the network, and map them to a port on itself
