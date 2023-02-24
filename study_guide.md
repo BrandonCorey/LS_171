@@ -96,3 +96,10 @@ IP addresses are addresses used to identify networks
 
 e.g if a networks address is 109.168.172.0, the range of IPs it can assign is 109.168.172.1 --> 109.168.172.254
   **- This means we can use the first 3 sections of an IP address to determine which network it belongs to**
+
+### Port Number ###
+A port is an identifier for a specific process running on a host. It is represented as an interget 0-65535
+- Can have an interger range of 0-65335
+- 0-1023 --> well known ports (http: 80, FTP: 20-21, SMTP: 25...)
+- 1024-49151 --> registered ports (by private entities like Mircosoft, IBM etc...), sometimes used for _ephemeral_ ports
+- 49152-65535 --> dynamic ports/private ports, cannot be registered for a specific use. Can be customized for services or allocated as _ephemeral_ ports
