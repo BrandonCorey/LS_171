@@ -119,3 +119,36 @@ A distributed database that translates domain names to an IP address, which can 
 - HTTP (Hypertext transfer protocol) - A system of rules that serve as a link between applications and the transfer of hypertext documents
   - Handles structure of the message that a host sends to another host
 - Request reponse protocol - client makes request to server using HTTP and waits for the response
+
+## TCP & UDP ##
+These are transfer layer protocols, responsible for getting a message to the correct service on a device
+- When talking about sender and recipient in context of TCP, we are talking about services on the host devices
+
+### What are they, what are their differences, and similarities ###
+TCP (transmission control protocol) - a protocol that provides reliable data transfer
+- Provides reliable network communication on top of an unreliable channel (the lower layers)
+- Provides data integrity, de-duplication, in-order delivery, and retransmission of lost data
+- It encapuslates the application level PDU (HTTP request)
+- Abstracts complexity of its data management away from application level (and as a result, from developers much of the time)
+
+**TCP Segment (PDU)**
+- Data payload consists of a message, most commonly, an HTTP request
+- Header:
+  - Source Port: Port of the service of the device sending the request
+  - Destination Port: Port of the service of the device recieving the request
+  - Checksum: Similar to other lays, provides error detectio (missing data or corrupted data) using a checksum
+  - Sequence Number: Helps send deliver requests in the order that they were sent
+  - Acknowledgement Number: Helps verify that a message that was sent was recieved successfuly
+    - If not, the message can be retransmitted
+    - It can also help detect duplicate sends as well, and discard those
+  - Window size: The amount of requests that the recipient **host** is able to recieve at any given moment. Corresponds to amount of space in the recipients buffer
+  - flags: `SYN`, `ACK`, are used to establish a connection between the sender and reciever
+
+### Have an understanding of threeway handshake and its purpose ###
+For two services to establish a connection
+- Sender sends a segment with a `SYN` flag (the value flippped to 1)
+- Reciever recieves segment with `SYN`, responds with a segment with `SYN` and `ACK` (both flipped to 1)
+- Reciever recieves `ACK` segment, connection is established
+
+- The sender will immediately start sending data after it sends its `ACK`
+- Reciever can only respond once it has recieved the `ACK`
