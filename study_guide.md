@@ -122,7 +122,6 @@ A distributed database that translates domain names to an IP address, which can 
 
 ## TCP & UDP ##
 These are transfer layer protocols, responsible for getting a message to the correct service on a device
-- When talking about sender and recipient in context of TCP, we are talking about services on the host devices
 
 ### What are they, what are their differences, and similarities ###
 TCP (transmission control protocol) - a protocol that provides reliable data transfer
@@ -152,3 +151,17 @@ For two services to establish a connection
 
 - The sender will immediately start sending data after it sends its `ACK`
 - Reciever can only respond once it has recieved the `ACK`
+
+## Flow control and congestion avoidance ##
+**Flow Control**
+- A mechanism to presvent the sener from overwhelming the reciever with too much data at once
+- The reciever can only recieve so much data, any data awaiting processing is stored in a buffer
+- As we said earlier, TCP segments have a `WINDOW` field that corresponds to how much room the host has left in its buffer
+- This means the reciever can inform the sender how much room it has left within the `WINDOW` field with its acknowledgements or responses
+  - This helps the sender and reciever prevent overwhelming each other, but not the underlying network
+
+**Congestion avoidance**
+Network congestion is when more data is being tramsmitted on the network than it has capacity to process and trasmit the data
+- TCP uses lost data to determine is network congestion is happening
+- Since TCP uses acknowledgements, it knows every piece of data that is lost
+- If many retransmissions are lost, it will transmit less and less data until that is no longer the case
