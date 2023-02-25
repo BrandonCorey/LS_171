@@ -203,3 +203,26 @@ UDP is good for latency sensitive applications that do care as much about losing
 UDP Cons:
 - **No reliabiliy built in:** there is no data transfer realibility built in aside from a checksum
 - **No transfer optimizations:** things like congestion avoidance or control flow are not built in
+
+## URL ##
+Unique Resource Locator (URL) is an identifier used to connect with servers
+- Offers an alternative to typing in the IP address of the server
+- Allows you to specify which type of protocol be used to connect to the server
+- Allows you to specify which resources on the server you wish to access
+- Allows you to submit data to the server through the uses of special syntax
+
+### Be able to identify different componentfs of a URL ###
+ex) `http://www.example.com:88/home?item=book`
+scheme: `http`
+host: `www.example.com`
+port: `88`
+path: `home`
+query string: `?item=book`
+
+### Understand URL encoding ###
+URLs are designed to only accept certain characters in the standard 128 character ACII set. Anything else must be encoded (replaced with other characters)
+- space --> `%20`
+- $ --> `%24`
+- £ --> `%C2%A3`
+
+Query strings have some additional syntax, for example, a space between words can either be `%20` or `+`
