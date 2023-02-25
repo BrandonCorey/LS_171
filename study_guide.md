@@ -185,21 +185,21 @@ A simpler transfer layer protocol that does not provide the same level of data m
 ### Pros and cons of TCP and UDP ###
 TCP is good for applications that need to have all the data delivered in the correct order for the app to make sense (something like an email, for example)
 TCP Pros:
-- **Connection-oriented**, doesn't start sending data until a connection has been established between application processes
-- **Data management**, provides guarentees of data integrity, de-duplication, in-order delivery, and retransmission of lost data
-- **Built-in flow control and congestion avoidance**, optimizes efficiency of data transfer without need for developer implentation of similar systems
-- **Generally**, provides many data managment services abstracted from the application level
+- **Connection-oriented:** doesn't start sending data until a connection has been established between application processes
+- **Data management:** provides guarentees of data integrity, de-duplication, in-order delivery, and retransmission of lost data
+- **Built-in flow control and congestion avoidance:** optimizes efficiency of data transfer without need for developer implentation of similar systems
+- **Generally:** provides many data managment services abstracted from the application level
 TCP Cons:
-- **Very complicated**, there is a lot going on with TCP under the hood
-- **Latency**, TCP suffers from increased latency due to all the data-management and network traffic safeguards it has in place
-- **Limited customizablity**, developers cannot implement their own versions of any of the above technologies as they are built into TCP
+- **Very complicated:** there is a lot going on with TCP under the hood
+- **Latency:** TCP suffers from increased latency due to all the data-management and network traffic safeguards it has in place
+- **Limited customizablity:** developers cannot implement their own versions of any of the above technologies as they are built into TCP
 
 UDP Pros:
 UDP is good for latency sensitive applications that do care as much about losing pieces of data, data being delivered out of order etc.. (like a video call app)
-- **Simple**, it will begin sending data to the destination without any of the data reliablity steps needing to take place
-- **Faster**, it does not need to process the data as intensively as TCP, which means less latency, and faster delivery
-- **customizable**, developers can reintroduce some feature sets of TCP without relying on all of them, something data retransmission or congestion avoidance perhaps
+- **Simple:** it will begin sending data to the destination without any of the data reliablity steps needing to take place
+- **Faster:** it does not need to process the data as intensively as TCP, which means less latency, and faster delivery
+- **customizable:** developers can reintroduce some feature sets of TCP without relying on all of them, something data retransmission or congestion avoidance perhaps
 
 UDP Cons:
-- **No reliabiliy built in**, there is no data transfer realibility built in aside from a checksum
-- **No transfer optimizations**, things like congestion avoidance or control flow are not built in
+- **No reliabiliy built in:** there is no data transfer realibility built in aside from a checksum
+- **No transfer optimizations:** things like congestion avoidance or control flow are not built in
