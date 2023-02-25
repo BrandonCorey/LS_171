@@ -206,10 +206,13 @@ UDP Cons:
 
 ## URL ##
 Unique Resource Locator (URL) is an identifier used to connect with servers
-- Offers an alternative to typing in the IP address of the server
-- Allows you to specify which type of protocol be used to connect to the server
-- Allows you to specify which resources on the server you wish to access
-- Allows you to submit data to the server through the uses of special syntax
+- Allows you to specify which type of protocol be used to connect to the server with a **scheme**
+- Offers an alternative to typing in the IP address of the server with a **host** (also refered to as the domain)
+- Allows you to specify which port should be used to send the message
+- Allows you to specify which resources on the server you wish to access with a **path**
+- Allows you to submit data as **parameters** to the server through the uses of special syntax called **query strings**
+  - Initiated in the url with a question mark (`?`)
+  - Can use `&` to seperate multiple paramters in a query string
 
 ### Be able to identify different componentfs of a URL ###
 ex) `http://www.example.com:88/home?item=book`
@@ -217,7 +220,7 @@ scheme: `http`
 host: `www.example.com`
 port: `88`
 path: `home`
-query string: `?item=book`
+parameters: `?item=book`
 
 ### Understand URL encoding ###
 URLs are designed to only accept certain characters in the standard 128 character ACII set. Anything else must be encoded (replaced with other characters)
@@ -226,3 +229,50 @@ URLs are designed to only accept certain characters in the standard 128 characte
 - £ --> `%C2%A3`
 
 Query strings have some additional syntax, for example, a space between words can either be `%20` or `+`
+
+## HTTP ##
+### What are HTTP requests and reponses ###
+HTTP - A system of rules that serve as the link between applications and the transfer of hypertext documents
+  - **Requests** --> This is an HTTP message sent a client to a server
+  - **Responses** --> This is an HTTP message sent from a server to a client
+
+ ### HTTP Reqeust ###
+ Two most common HTTP requests are `GET` and `POST`
+ - `GET` - Used to retrieve information from the server (most common)
+ - `POST` - used to send information to the server
+
+**GET Requests**
+Used to retrieve infromation from the server
+- Typically in the initiated in the browser by either clicking a link or entering a URL or IP address in an address bar
+- Used to retrieve information from the server (most common)
+- Resposnse can be anything, but if its HTML, your browser will automatically issue GET requests to any other resources references in the HTML
+- `GET` Requests can also be made programatically
+
+**POST Requests**
+Used when we want to iniate some action on the server or send data to the server
+- Typically used when submitting a form within a browser
+- Allows us to send much larger information that with query strings
+- Data sent with a `POST` is contained within the `HTTP` body
+
+**Components of HTTP Requests**
+Method + URL + HTTP version + Headers + Body
+- METHOD + URL + HTTP version --> is referred to as the request line and is the first line of the request
+  - Method - A set of meta-data we include in our request to give the server info on how to handle it
+  - Headers - Supplemental information about the request/response that provides useful details to server/client (colon seperated name-value pairs as plain text)
+  - HTTP version - the verison of HTTP that is to be used for the request
+- Note that if a request is made _AFTER_ a connection has already been made to a host, the full URL is not needed, and the **path** can be provided instead
+- In HTTP/1.1 and later, the `Host` (e.g www.excample.com) is a required header field
+- Only required Headders are `Host` and `Connection` for HTTP/1.1 and later
+
+**Components of HTTP Response**
+Status line + Headers + Body
+- Status line includes HTTP version, a status code, and status text
+- Body includes any HTML, JSON etc..
+- Only required header is `Date`, and `Content-Type` is recommended
+
+**Status codes for HTTP responses**
+Three digit numbers that the server sends back after recieving a request signifying the status of the request
+- 200 --> OK - The request was handled successfully
+- 302 --> Found - The requested resource has changed temporarily. Usually results in a redirect
+- 404 --> Not Found - The requested resource cannot be found
+- 500 --> Internal Server Error - The server has encountered a generic error
