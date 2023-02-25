@@ -129,13 +129,14 @@ TCP (transmission control protocol) - a protocol that provides reliable data tra
 - Provides data integrity, de-duplication, in-order delivery, and retransmission of lost data
 - It encapuslates the application level PDU (HTTP request)
 - Abstracts complexity of its data management away from application level (and as a result, from developers much of the time)
+- It is a _connection-oriented protocol_, providing connection state tracking through the use of a three way handshake
 
 **TCP Segment (PDU)**
 - Data payload consists of a message, most commonly, an HTTP request
 - Header:
-  - Source Port: Port of the service of the device sending the request
-  - Destination Port: Port of the service of the device recieving the request
-  - Checksum: Similar to other lays, provides error detectio (missing data or corrupted data) using a checksum
+  - Source Port: Port of the service on the device sending the request
+  - Destination Port: Port of the service on the device recieving the request
+  - Checksum: Similar to other layers, provides error detectio (missing data or corrupted data) using a checksum
   - Sequence Number: Helps send deliver requests in the order that they were sent
   - Acknowledgement Number: Helps verify that a message that was sent was recieved successfuly
     - If not, the message can be retransmitted
@@ -165,3 +166,40 @@ Network congestion is when more data is being tramsmitted on the network than it
 - TCP uses lost data to determine is network congestion is happening
 - Since TCP uses acknowledgements, it knows every piece of data that is lost
 - If many retransmissions are lost, it will transmit less and less data until that is no longer the case
+
+### UDP ###
+A simpler transfer layer protocol that does not provide the same level of data management as TCP, but is faster as a result
+**PDU*** is called a _datagram_
+- Encapsulates data from the application layer
+- Pronivdes **NO** guarentee of message delivery
+- Pronivdes **NO** guarentee of message delivery order
+- Provides no built-in congestion avoidance or flow control mechanisms
+- Provides no connection state tracking, it is a _connectionless_ protocol
+
+**Datagram headers**
+- Source Port: Port number of the service on the device sending the request
+- Destination Port: Port number of the service on the device recieving the request
+- Length: Number of bits within the data paylaod
+- Checksum: Similar to other layers, provides error detectio (missing data or corrupted data) using a checksum
+
+### Pros and cons of TCP and UDP ###
+TCP is good for applications that need to have all the data delivered in the correct order for the app to make sense (something like an email, for example)
+TCP Pros:
+- **Connection-oriented**, doesn't start sending data until a connection has been established between application processes
+- **Data management**, provides guarentees of data integrity, de-duplication, in-order delivery, and retransmission of lost data
+- **Built-in flow control and congestion avoidance**, optimizes efficiency of data transfer without need for developer implentation of similar systems
+- **Generally**, provides many data managment services abstracted from the application level
+TCP Cons:
+- **Very complicated**, there is a lot going on with TCP under the hood
+- **Latency**, TCP suffers from increased latency due to all the data-management and network traffic safeguards it has in place
+- **Limited customizablity**, developers cannot implement their own versions of any of the above technologies as they are built into TCP
+
+UDP Pros:
+UDP is good for latency sensitive applications that do care as much about losing pieces of data, data being delivered out of order etc.. (like a video call app)
+- **Simple**, it will begin sending data to the destination without any of the data reliablity steps needing to take place
+- **Faster**, it does not need to process the data as intensively as TCP, which means less latency, and faster delivery
+- **customizable**, developers can reintroduce some feature sets of TCP without relying on all of them, something data retransmission or congestion avoidance perhaps
+
+UDP Cons:
+- **No reliabiliy built in**, there is no data transfer realibility built in aside from a checksum
+- **No transfer optimizations**, things like congestion avoidance or control flow are not built in
