@@ -291,12 +291,19 @@ A stateful web app is one that appears to retain an amount of persiting data bet
 - Since HTTP is a stateless protocol, developers often use certain tricks to give the client and psuedo-stateful experience
 
 **Techniques**
-- Server can send a unique token to the client
-  - Client then appends this token to all of its requests to get a modified response (i.e a logged in web page)
-  - Token is called a **Session Identifier (session ID)**
-    - A session is a period of interaction between a user and a web program
-  - We can use our modified web pages based on the session ID to display a faux persistant view between client page refereshes
+
+Server can send a unique token to the client
+- Client then appends this token to all of its requests to get a modified response (i.e a logged in web page)
+- Token is called a **Session Identifier (session ID)**
+  - A session is a period of interaction between a user and a web program
+- We can use our modified web pages based on the session ID to display a faux persistant view between client page refereshes
 
 A common way to store the Session ID is within a cookie, which is a small file stored on within the client browser
 - Cookies contain session information, including, but not limited to Session ID
 - Cookie does not contain actual session data, that will be hosted on the the server
+
+AJAX
+- Asyncrhonous JavaScript and XML
+- Allows browsers to issue requests and process responses without a full page requests
+- Less expensive becaues it doesn't require the server to re-render the whole webpage, only the part that needs to be updated
+- Requesta and responses are sent as normal, but each response is processed by server-side callback function that is responsible for updating the HTML accordingly
