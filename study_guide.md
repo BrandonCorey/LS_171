@@ -5,6 +5,7 @@ The internet is essentially a large number of inter-connected networks. It is a 
 - These networks are connected via routers many routers that redirect network traffic
 
 **A network**
+
 Two or more devices connected in a way in which they can communicate data
 - LAN (Local Area Network) - Devices connected via physical network cables, and perhaps other network devices such as a switch or HUB
 
