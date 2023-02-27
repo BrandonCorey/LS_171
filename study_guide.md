@@ -347,3 +347,5 @@ This is a browser security feature that allows unrestricted access between resou
 - So https://example.com and https://example.com/home would be same origin
 - But https://example.com and http://example.com would not be
 - This policy prevents malicious scripts from accessing sentitive information or tampaering with content of other websites
+
+## HTTPS and TLS ##
