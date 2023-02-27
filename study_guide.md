@@ -237,6 +237,8 @@ HTTP - A system of rules that serve as the link between applications and the tra
   - **Requests** --> This is an HTTP message sent a client to a server
   - **Responses** --> This is an HTTP message sent from a server to a client
 
+**Request reponse protocol** - client makes request to server using HTTP and waits for the response
+
  ### HTTP Reqeust ###
  Two most common HTTP requests are `GET` and `POST`
  - `GET` - Used to retrieve information from the server (most common)
