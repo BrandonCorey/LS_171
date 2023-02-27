@@ -310,3 +310,40 @@ AJAX
 - Allows browsers to issue requests and process responses without a full page requests
 - Less expensive becaues it doesn't require the server to re-render the whole webpage, only the part that needs to be updated
 - Requesta and responses are sent as normal, but each response is processed by server-side callback function that is responsible for updating the HTML accordingly
+
+## Security risks for HTTP and solutions ##
+Since HTTP is not encrypted, requests and responses are sent as plain text, this raises security concerns
+- A hacker could try to steal session information and log into your account, for example
+
+### Security risks ###
+**Session Hijacking**
+
+Session IDs are typically stored as normal strings inside on a cookie on the client side, and this ID is sent to the servcer on each request
+- If a hacker intercepts one of these requests, they could accessa  session without us knowing
+- This could allow them to access an account login without needing to know the login information
+
+**Countermeasures**
+- Ask for reaunthetication when accessing sensitive info within a session (such as charging a credit card, changing a password)
+  - The idea is to reset thte session, and asking the user to re-enter their password to continue
+- Expiration time on sessions - Limits the time the hacker will have to do damage
+- use HTTPS - This encrypts requests/responses and minimizes the changes that the message and can be read if intercepted
+- Same-origin policy also helps protect against session hijacking, preventing malicious scripts from other domains from collecting the session ID
+
+### Cross-site scripting XSS ###
+This happens when a user is allowed to input HTML or JS that ends up being sent to the server
+- An example is submitting text using a `<textarea>` HTML block
+- If this is for a comment on a page for example, the updated HTML for the page will contain whatever was submitted (including HTML or JS)
+- If the server does not do some type of sanitation, the fcode will be injected into the page contents
+  - Someone malicious could add some `<script>` tags and inject javascript that is executed by the server
+
+**Countermeasures**
+- Sanitize user input e.g gt rid of all script tags, or disallow JS or HTML input completely
+- Escape all user input data before displaying it so that it displays as plain text
+- Same-origin call also protect in the case of scripts that are injected to other websites and executed from a different domain
+
+## Same-origin Policy ##
+This is a browser security feature that allows unrestricted access between resources originating from the same domain, but not different ones
+- Two web pages have the same domain if they have the same **scheme**, **host**, and **port**
+- So https://example.com and https://example.com/home would be same origin
+- But https://example.com and http://example.com would not be
+- This policy prevents malicious scripts from accessing sentitive information or tampaering with content of other websites
