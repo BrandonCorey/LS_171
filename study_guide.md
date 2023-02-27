@@ -276,3 +276,27 @@ Three digit numbers that the server sends back after recieving a request signify
 - 302 --> Found - The requested resource has changed temporarily. Usually results in a redirect
 - 404 --> Not Found - The requested resource cannot be found
 - 500 --> Internal Server Error - The server has encountered a generic error
+
+## Statefulness ##
+"State" in the context of web apps refers to the current configuaration of elements within the appliaction at a given moment
+
+A **stateless** protocol is one that is designed in a way where each request/response pair is indepenedent
+- HTTP is a stateless protocol
+- Each request/response has no knowledge of any previous ones
+- Is easier to use and consumes less resources as the server does not need to hang on to state between requests
+  - If a requests breaks, the server does not have to do any cleanup
+
+### Stateful web apps ###
+A stateful web app is one that appears to retain an amount of persiting data between HTTP requests
+- Since HTTP is a stateless protocol, developers often use certain tricks to give the client and psuedo-stateful experience
+
+**Techniques**
+- Server can send a unique token to the client
+  - Client then appends this token to all of its requests to get a modified response (i.e a logged in web page)
+  - Token is called a **Session Identifier (session ID)**
+    - A session is a period of interaction between a user and a web program
+  - We can use our modified web pages based on the session ID to display a faux persistant view between client page refereshes
+
+A common way to store the Session ID is within a cookie, which is a small file stored on within the client browser
+- Cookies contain session information, including, but not limited to Session ID
+- Cookie does not contain actual session data, that will be hosted on the the server
