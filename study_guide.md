@@ -41,7 +41,7 @@ Two or more devices connected in a way in which they can communicate data
 **Round-trip time** is the time for a message to be sent, delivered, and for a response or acknowledgement to be recieved
  
  ### Bandwith ###
- A measure of the amount of data that is sent within a particular amount of time (typically measured in bits/seconds)
+ A measure of the amount of data that is sent transferred over a particular amount of time (typically measured in bits/seconds)
  - The amount of bandwith (data per second) a device recieves will be equal to the bandwith transferred by the slowest network point in the connection
  - The slowest device in the connection is referred to as the "bottleneck"
    - This doesn't have to be a network device, as the bottleneck could be something like a wire or cable as well (CAT5 ethernet for example)
