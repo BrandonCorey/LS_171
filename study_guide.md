@@ -2,7 +2,7 @@
 ## The internet ##
 ### What is the internet, and how does it work? ###
 The internet is essentially a large number of inter-connected networks. It is a network of networks
-- These networks are connected via routers many routers that redirect network traffic
+- These networks are connected via many routers that redirect network traffic
 
 **A network**
 
