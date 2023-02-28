@@ -22,6 +22,7 @@ Two or more devices connected in a way in which they can communicate data
 
 **Transmission delay** - Time is takes for message to move from network device to transmission medium (wire, fiber optic, radio wave etc...)
 - Example of this is the interframe gap at the data-link layer
+
 **Processig delay** - Time it takes for a device to process a message
 - A router may need to process an IP packet (look at its header, IP destination) before routing it along
 - A switch may need to process an ethernet frame (look at header, MAC address) before moving it along
