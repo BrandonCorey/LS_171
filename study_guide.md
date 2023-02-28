@@ -49,7 +49,7 @@ Two or more devices connected in a way in which they can communicate data
 
 ## How do lower level protocols operate ##
 ### Data Link layer ###
-This layer is responsible for allowing the more logical layers to interface with physical with the physical. Its protocols are concerned with identifying physical devices to send data to
+This layer is responsible for allowing the more logical layers to interface with physical. Its protocols are concerned with identifying physical devices to send data to
 ### Ethernet Protocol ###
 **PDU** - Ethernet frame
 - Encapsulates data from the Network layer above (IP packet) (lowest layer where encapsulation takes place)
