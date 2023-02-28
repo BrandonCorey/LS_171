@@ -349,3 +349,49 @@ This is a browser security feature that allows unrestricted access between resou
 - This policy prevents malicious scripts from accessing sentitive information or tampaering with content of other websites
 
 ## HTTPS and TLS ##
+### HTTPS ###
+A HTTP protocol where all request/responses are encrypted before being transported on the network
+- Sends message through a cryptographic protocol called TLS (Transport Layer security)
+  - Formerly known as SSL (Secure Sockets Layer)
+- Uses certificates to communicate with servers and exchange security keys before encryption
+
+### TLS ###
+A security protocol for the transport layer
+- Provides encryption, authentification, and integrity
+- **Encyption** - a process of encoding message so that it can only be read by those with an authorized means of decoding it
+- **authentification** a process to verify the identity of a particular party in the message exchange
+- **Integrity** - A process to detect whether a message has been interfered with or faked
+
+### Encryption ###
+TLS uses a combination of symmetric and asymmetric cryptography
+- Most of the exchange takes placce using symmetric key encryption
+- Initial symmetric key exchange is conducted using asymmetric key encryption
+  - This process is called the **TLS Handshake**
+
+### TLS Handshake ###
+- A `ClientHello` message is sent after the TCP `ACK` So immediately after the connecction is established, but before any data is transferred)
+- After recieving `ClientHello`, server respondes with `ServerHello` message
+  - Sets TLS protocol version and Cipher Suite, as well sas its **certificate that contains a public key** and a `ServerDone` marker
+- After client gets message with `ServerHelloDone`, it inititates the key exchange process
+  - Uses server's public key to encrypt a key gen for the symmetric key it wants to use for future message encryption
+  - In the same message, it includes a `ChangeCipherSpec` flag to indicate to switch to using the symmetric key, as well as a `Finished` flag to indicate the handshake is done
+
+**Note about the cipher suite**
+- It is a list of algorithms that can be used for each part of the encryption (key exchange, authenticfication, symmetric key encryption, and message integrity)
+
+### TLS authentification ###
+We need a way to make sure our encrypted connection is with a party who is what they are claiming to be
+- During the TLS handshake, as part of its `ServerHello` message, the server provides its **certificate**
+- The certificate provides a mean of identification for the prarty providing it (identifies the owner of the cert)
+  - However, since certificates are publically available, the person using it may not actually be the owner of it
+  - To combat this, an algorithm is used to send an encrypted message to the client to verify if the server is in possession of the correct private key for the cert
+  - If the client can confirm the sever hass access to the correct private key for the public key included in the certificate, the owner is legit
+
+### TLS encapsulation ###
+TLS can be thought of as a protocol operating between HTTP and TCP
+- When transporting application data, TLS encapsulates the data in the same way as any other protocol
+- PDU from application is encapsulated in data payloard (called TLS record)
+- Header fields include content type, TLS version, bit length, message authentication code, and padding
+  - **Message authentication code** (MAC) is a similar concept to a checksum, but is concerned with data security rather than corruption or loss
+  - Instead of using a checksum, uses a hashing algorithm to capture a small chunk of data (called a digest) and places it in MAC headder field
+  - Reciever uses the same algorithm to generate the same digest, and compares to the digest within the MAC header
