@@ -16,9 +16,9 @@ Two or more devices connected in a way in which they can communicate data
 
 ### Latency ###
  A measure of time that it takes for data to get from one point to another (typically measured in milliseconds)
- - Can be thought of as a measure of delay for data transfer, as well as sending preamble and SFD
+ - Can be thought of as a measure of delay for data transfer
 
-**Propogratin delay** - amount of time a message takes to travel from sender to reciever (strictly the time it takes, based on distance / speed of signal medium)
+**Propogration delay** - amount of time a message takes to travel from sender to reciever (strictly the time it takes, based on distance / speed of signal medium)
 **Transmission delay** - Time is takes for message to move from network device to transmission medium (wire, fiber optic, radio wave etc...)
 - Example of this is the interframe gap at the data-link layer
 **Processig delay** - Time it takes for a device to process a message
