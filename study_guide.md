@@ -188,11 +188,13 @@ A simpler transfer layer protocol that does not provide the same level of data m
 
 ### Pros and cons of TCP and UDP ###
 TCP is good for applications that need to have all the data delivered in the correct order for the app to make sense (something like an email, for example)
+
 TCP Pros:
 - **Connection-oriented:** doesn't start sending data until a connection has been established between application processes
 - **Data management:** provides guarentees of data integrity, de-duplication, in-order delivery, and retransmission of lost data
 - **Built-in flow control and congestion avoidance:** optimizes efficiency of data transfer without need for developer implentation of similar systems
 - **Generally:** provides many data managment services abstracted from the application level
+
 TCP Cons:
 - **Very complicated:** there is a lot going on with TCP under the hood
 - **Latency:** TCP suffers from increased latency due to all the data-management and network traffic safeguards it has in place
