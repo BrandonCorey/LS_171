@@ -74,19 +74,20 @@ This layer and its protocols are concerned with the transfer of data between net
 
 ### Internet Protocol (IP) ###
 **PDU** - is called a data packet/packet
+
 **PDU - Data packets/packets**
 - Encapsulates data from the transport layer (typically a TCP segment or UDP datagram)
 - Has a header and a data payload
 
 **Important Fields**
-Version - indicates the version of IP e.g IPv4 vs IPv6
-ID, Flags, Fragment Offset: - If a piece of data has to be fragmented because it is too large, these flags will help it be reassembled
-TTL - Time to live. If a packet lives too long without reaching a destination, it will be dropped
-Protocol - Indicates protocol used for the payload (TCP vs UDP)
-Checksum - Sender generates value using data to be sent and alogirthm. Recipient uses same algorithm or recieved data. If values don't match, packet is dropped
+- Version - indicates the version of IP e.g IPv4 vs IPv6
+- ID, Flags, Fragment Offset: - If a piece of data has to be fragmented because it is too large, these flags will help it be reassembled
+- TTL - Time to live. If a packet lives too long without reaching a destination, it will be dropped
+- Protocol - Indicates protocol used for the payload (TCP vs UDP)
+- Checksum - Sender generates value using data to be sent and alogirthm. Recipient uses same algorithm or recieved data. If values don't match, packet is dropped
   - This is used so that corrupted or incomplete data is identified
-Source address - 32 bit IP address of sender
-Destination address: 32 bit IP address of recipient
+- Source address - 32 bit IP address of sender
+- Destination address: 32 bit IP address of recipient
 
 **IP Addresses (IPv4)**
 IP addresses are addresses used to identify networks
