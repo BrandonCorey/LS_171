@@ -321,7 +321,7 @@ A common way to store the Session ID is within a cookie, which is a small file s
 - Requests and responses are sent as normal, but each response is processed by server-side callback function that is responsible for updating the HTML accordingly
 
 **Here's how it works:**
-- The client (browser) sends an asynchronous request to the server using the XMLHttpRequest (XHR) object.
+- The client (browser) sends an asynchronous request to the server using the XMLHttpRequest (XHR) object. (called _polling_ a server)
 - The server processes the request and sends back a response, which can be in any format such as HTML, XML, JSON, or plain text.
 - The client receives the response and updates the appropriate part of the web page using JavaScript.
 
