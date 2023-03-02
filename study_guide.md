@@ -290,7 +290,7 @@ Three digit numbers that the server sends back after recieving a request signify
 - 500 --> Internal Server Error - The server has encountered a generic error
 
 ## Statefulness ##
-"State" in the context of web apps refers to the current configuaration of elements within the appliaction at a given moment
+"State" in the context of web apps refers to the current values of various components within the appliaction at a given moment
 
 A **stateless** protocol is one that is designed in a way where each request/response pair is indepenedent
 - HTTP is a stateless protocol
