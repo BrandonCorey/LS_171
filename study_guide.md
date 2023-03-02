@@ -110,6 +110,7 @@ A port is an identifier for a specific process running on a host. It is represen
 
 ### DNS (Domain Name Systen) ###
 A distributed database that translates domain names to an IP address, which can then be used to make a request to a server
+- Before sending HTTP request so server, client will commonly send DNS request to DNS server to resolve domain name used in GET request
 - Makes accessing webpages easier since IP addresses do not need to be memorized
 - Computers that store DNS databases are called DNS servers
 - Organized in a hierachical structure. If one DNS server doesn't have record of a domain name, it routes the request to a server higher up
