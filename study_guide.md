@@ -285,9 +285,13 @@ Status line + Headers + Body
 **Status codes for HTTP responses**
 Three digit numbers that the server sends back after recieving a request signifying the status of the request
 - 200 --> OK - The request was handled successfully
+  - ex) a user enters a URL in a browser and the server serves the HTML without any issues,
 - 302 --> Found - The requested resource has changed temporarily. Usually results in a redirect
+  - ex) a user enters a URL in a browser and is redirected to a different webpage based on the "Location" header in the returned response,
 - 404 --> Not Found - The requested resource cannot be found
+  - ex) a user enters a URL in a browser and the resource is not found by any DNS servers within the hierarchy that was routed through,
 - 500 --> Internal Server Error - The server has encountered a generic error
+  - ex) a user submits a form on webpage with a value that the server did not expect causing an internal error
 
 ## Statefulness ##
 "State" in the context of web apps refers to the current values of various components within the appliaction at a given moment
