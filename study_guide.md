@@ -270,7 +270,8 @@ Method + URL + HTTP version + Headers + Body
   - HTTP version - the verison of HTTP that is to be used for the request
 - Note that if a request is made _AFTER_ a connection has already been made to a host, the full URL is not needed, and the **path** can be provided instead
 - In HTTP/1.1 and later, the `Host` (e.g www.excample.com) is a required header field
-- Only required Headders are `Host` and `Connection` for HTTP/1.1 and later
+- Only required Headders are `Host` and `Connection`, and `Content-Length` for HTTP/1.1 and later
+  - `Connection` specifies whether or not to keep the connection open after a request and repsponse cycle has completed
 
 **Components of HTTP Response**
 Status line + Headers + Body
