@@ -314,16 +314,39 @@ A common way to store the Session ID is within a cookie, which is a small file s
 - Cookies contain session information, including, but not limited to Session ID
 - Cookie does not contain actual session data, that will be hosted on the the server
 
-AJAX
+**AJAX**
 - Asyncrhonous JavaScript and XML
 - Allows browsers to issue requests and process responses without a full page requests
 - Less expensive becaues it doesn't require the server to re-render the whole webpage, only the part that needs to be updated
 - Requests and responses are sent as normal, but each response is processed by server-side callback function that is responsible for updating the HTML accordingly
 
-Here's how it works:
+**Here's how it works:**
 - The client (browser) sends an asynchronous request to the server using the XMLHttpRequest (XHR) object.
 - The server processes the request and sends back a response, which can be in any format such as HTML, XML, JSON, or plain text.
 - The client receives the response and updates the appropriate part of the web page using JavaScript.
+
+Downside is the checks are at set intervals or based on conditions (events) and may be unecessary a majority of the time
+
+**SSE (Server-sent Events)**
+Enables server-to-client real time streaming of text based event data
+- This allows the server to deliver up to date into to the client without the client having to request the data
+- Does this through tthe use of a long-lived TCP connection that stays open even after the initial data is served to the client
+
+**Downsides:**
+- Only works in a client-server model
+- Does not allow client to request anything after the initial connection is established
+- Can only support UTF-8 text based data, not binary
+
+**WebSocket**
+Allows a client and a server to establish a persistent TCP connection that allows either side to independently send messgaes to each other
+- Birdirectional communication that **does not require requests or responses from either side**
+- Messages can consist of text or application code
+- Is an unstructured, low latency, non-parsed, non-buffered connection
+
+**Downsides:**
+- Might also need to implement some type of security similar to TLS
+- Uses a persistant connection between client and server which can be resource intensive
+- Implementaiton of websocket can be more complex
 
 ## Security risks for HTTP and solutions ##
 Since HTTP is not encrypted, requests and responses are sent as plain text, this raises security concerns
