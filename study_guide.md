@@ -272,12 +272,15 @@ Method + URL + HTTP version + Headers + Body
 - In HTTP/1.1 and later, the `Host` (e.g www.excample.com) is a required header field
 - Only required Headders are `Host` and `Connection`, and `Content-Length` for HTTP/1.1 and later
   - `Connection` specifies whether or not to keep the connection open after a request and repsponse cycle has completed
+  - `Content-Length` is length of body is bytes
 
 **Components of HTTP Response**
 Status line + Headers + Body
 - Status line includes HTTP version, a status code, and status text
 - Body includes any HTML, JSON etc..
-- Only required header is `Date`, and `Content-Type` is recommended
+- Only required headers for HTTP/1.1 are `Date`, `Server`, `Content-Length` and `Content-Type` is required for reponses that have a body
+  - `Content-Length` is length of body is bytes
+  - `Server` is name and version of the server software that generated the response
 
 **Status codes for HTTP responses**
 Three digit numbers that the server sends back after recieving a request signifying the status of the request
