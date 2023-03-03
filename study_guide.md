@@ -73,7 +73,6 @@ There are static ID addresses for network enabled devices (devices that have a N
 This layer and its protocols are concerned with the transfer of data between networks
 
 ### Internet Protocol (IP) ###
-**PDU** - is called a data packet/packet
 
 **PDU - Data packets/packets**
 - Encapsulates data from the transport layer (typically a TCP segment or UDP datagram)
