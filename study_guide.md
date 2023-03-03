@@ -85,8 +85,8 @@ This layer and its protocols are concerned with the transfer of data between net
 - Protocol - Indicates protocol used for the payload (TCP vs UDP)
 - Checksum - Sender generates value using data to be sent and alogirthm. Recipient uses same algorithm or recieved data. If values don't match, packet is dropped
   - This is used so that corrupted or incomplete data is identified
-- Source address - 32 bit IP address of sender
-- Destination address: 32 bit IP address of recipient
+- Source address - 32 bit IP address of sender --> when converted to decimal, 4 groups of digits ranging from 0-255 (e.g 192.168.101.1)
+- Destination address: 32 bit IP address of recipient --> when converted to decimal, 4 groups of digits ranging from 0-255 (e.g 192.168.101.1)
 
 **IP Addresses (IPv4)**
 IP addresses are addresses used to identify networks
