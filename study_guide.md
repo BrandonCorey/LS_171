@@ -120,7 +120,7 @@ A distributed database that translates domain names to an IP address, which can 
 - server - the content being requested by the client is located on a remote computer called a _server_
   - These are typically just computers capable of handling inbound requests
   - Job is to send a response to an inbound request
-- HTTP (Hypertext transfer protocol) - A system of rules that serve as a link between applications and the transfer of hypertext documents
+- HTTP (Hypertext transfer protocol) - the set of rules which provide uniformity to the way resources on the web are transferred between applications
   - Handles structure of the message that a host sends to another host
 - Request reponse protocol - client makes request to server using HTTP and waits for the response
 
