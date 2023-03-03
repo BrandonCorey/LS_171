@@ -81,7 +81,7 @@ This layer and its protocols are concerned with the transfer of data between net
 **Important Fields**
 - Version - indicates the version of IP e.g IPv4 vs IPv6
 - ID, Flags, Fragment Offset: - If a piece of data has to be fragmented because it is too large, these flags will help it be reassembled
-- TTL - Time to live. If a packet lives too long without reaching a destination, it will be dropped
+- TTL - Time to live. If a packet lives too long without reaching a destination, it will be dropped (too many hops)
 - Protocol - Indicates protocol used for the payload (TCP vs UDP)
 - Checksum - Sender generates value using data to be sent and alogirthm. Recipient uses same algorithm or recieved data. If values don't match, packet is dropped
   - This is used so that corrupted or incomplete data is identified
