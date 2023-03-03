@@ -149,7 +149,7 @@ TCP (transmission control protocol) - a protocol that provides reliable data tra
   - flags: `SYN`, `ACK`, are used to establish a connection between the sender and reciever
 
 ### Have an understanding of threeway handshake and its purpose ###
-For two services to establish a connection
+The purpose of the handshake it to establish connection between sender and reciever and guarentee that they are ready to begin transmitting data
 - Sender sends a segment with a `SYN` flag (the value flippped to 1)
 - Reciever recieves segment with `SYN`, responds with a segment with `SYN` and `ACK` (both flipped to 1)
 - Reciever recieves `ACK` segment, connection is established
@@ -264,7 +264,7 @@ Used when we want to iniate some action on the server or send data to the server
 
 **Components of HTTP Requests**
 Method + URL + HTTP version + Headers + Body
-- METHOD + URL + HTTP version --> is referred to as the request line and is the first line of the request
+- METHOD + URL + HTTP version --> is referred to as the **request line** and is the first line of the request
   - Method - A set of meta-data we include in our request to give the server info on how to handle it
   - Headers - Supplemental information about the request/response that provides useful details to server/client (colon seperated name-value pairs as plain text)
   - HTTP version - the verison of HTTP that is to be used for the request
@@ -275,9 +275,9 @@ Method + URL + HTTP version + Headers + Body
   - `Content-Length` is length of body is bytes
 
 **Components of HTTP Response**
-Status line + Headers + Body
-- Status line includes HTTP version, a status code, and status text
-- Body includes any HTML, JSON etc..
+status code + status text + HTTP version + Headers + Body
+- **Status line** includes HTTP version, a status code, and status text
+- Body includes any HTML, JSON, images, xml etc..
 - Only required headers for HTTP/1.1 are `Date`, `Server`, `Content-Length` and `Content-Type` is required for reponses that have a body
   - `Content-Length` is length of body is bytes
   - `Server` is name and version of the server software that generated the response
@@ -293,7 +293,7 @@ Three digit numbers that the server sends back after recieving a request signify
 - 500 --> Internal Server Error - The server has encountered a generic error
   - ex) a user submits a form on webpage with a value that the server did not expect causing an internal error
 
-## Statefulness ##
+## Explain statefulness in the context of a web application ##
 "State" in the context of web apps refers to the current values of various components within the appliaction at a given moment
 
 A **stateless** protocol is one that is designed in a way where each request/response pair is indepenedent
