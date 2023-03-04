@@ -67,7 +67,8 @@ This layer is responsible for allowing the more logical layers to interface with
  - If the checksums are different, data has been losses or corrupted, and the frame is dropped
 
 **Notes about MAC addresses**
-There are static ID addresses for network enabled devices (devices that have a NIC card)
+These are static ID addresses for network enabled devices (devices that have a NIC card)
+- Formatted as a sequence of six two-digit hexadecimal numbers e.g `00:40:96:9d:68:0a` with different ranges being assigned to different manufacturers
 - Local network devices like switches have MAC tables that they use to route data to the correct device using MAC source address and destination address, specified by the Ethernet protocol
   - The switch will figure out the MAC addresses through communication with the devices on the network, and map them to a port on itself
 
