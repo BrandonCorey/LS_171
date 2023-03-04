@@ -410,7 +410,8 @@ TLS uses a combination of symmetric and asymmetric cryptography
   - This process is called the **TLS Handshake**
 
 ### TLS Handshake ###
-- A `ClientHello` message is sent after the TCP `ACK`, so immediately after the connecction is established, but before any data is transferred)
+- A `ClientHello` message is sent after the TCP `ACK`, so immediately after the connection is established, but before any data is transferred)
+  - `ClientHello` specifies which version of the TLS protocol is to be used and a list of usable cipher suites
 - After recieving `ClientHello`, server respondes with `ServerHello` message
   - Sets TLS protocol version and Cipher Suite, as well sas its **certificate that contains a public key** and a `ServerDone` marker
 - After client gets message with `ServerHelloDone`, it inititates the key exchange process
