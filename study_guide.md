@@ -153,6 +153,45 @@ TCP (transmission control protocol) - a protocol that provides reliable data tra
   - Window size: The amount of requests that the recipient **host** is able to recieve at any given moment. Corresponds to amount of space in the recipients buffer
   - flags: `SYN`, `ACK`, are used to establish a connection between the sender and reciever
 
+**Note on multiplexing**
+This is the combining of multiple streams of data into a single transmission channel
+
+- Can think of multiple light signals in a fiber-optic cable, or multiple frequencies in a radio wave transmitting data
+- We need to do this to this for often for our IP host-to-host connections
+- An example would be taking your spotify data, email data, browser data, and slack data, and combining them into a single stream to send to another network
+
+**Note on demultiplexing**
+This is the seperation of a single data stream back into their individual data channels
+- Once all the data mentioned above gets to the correct netowrk or device, it needs to be demultiplexed to arrive at the correct host or application
+- The identification of the relevant applications is done using ports
+
+**Note about sockets**
+An abstraction for an endpoint used for inter-process communication
+- Represented by an IP address concatenated to a port number
+- A common internet socket is TCP/IP, used for inter-process communication between networked processes (usually on different machines)
+  - Tecnically, you could run a server on your `localhost` and access it via a browser on the same device. These would still use internet sockets to communicate
+- **In code, sockets are represented as objects and instantiated to create connections between applications**
+### Keep in mind ###
+- There are also UNIX sockets used for communication between local processes, but not important for this course
+- There is also a distinction between the concept of a socket and its code implemtation
+- This course primarily focuses on the _concept_ of a socket and the application of this concept for inter-network communication between networked applicaiton
+
+### Sockets and connections ###
+There are two types of connections that can be facilitated with sockets:
+
+**Connectionless:**
+- Could have one socket object defined by IP address of host + port assigned to process on machine listening for all incoming messages directed at its IP/port pair
+- Could come from any source at any time, in any order
+- This implementation allows sockets to process the incoming messages as they arrive and sends responses as necessary
+
+**Connection-oriented:**
+- Could have one socket object listening a port similar to connection, but when the object recieves a message, it instantiates a new socket object
+- This new instance will contain info about its own socket and the source socket as well
+- These new instances will only listen for for messages where soure port, soure IP, destination port, and destination IP match up
+  - These four pieces of info above are called a four-tuple
+- Any messages not matching the four-tuple would be picked up by the original socket, which then instantiates a new socket object
+- This implementation essentially allows for a dedicated connection for communication between specific processes running on different hosts
+
 ### Have an understanding of threeway handshake and its purpose ###
 The purpose of the handshake it to establish connection between sender and reciever and guarentee that they are ready to begin transmitting data
 - Sender sends a segment with a `SYN` flag (the value flippped to 1)
