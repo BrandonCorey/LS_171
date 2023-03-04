@@ -22,6 +22,8 @@ Two or more devices connected in a way in which they can communicate data
 
 **Transmission delay** - Time is takes for message to move from network device to transmission medium (wire, fiber optic, radio wave etc...)
 - Example of this is the interframe gap at the data-link layer
+  - interframe gap is the brief pause between transmission of each frame. Gap varies based on capability of connection
+  - The Preamble and SF are also part of transmission delay as they are sent prior to frame synchronoization and notify the recieving device to expect data
 
 **Processing delay** - Time it takes for a device to process a message
 - A router may need to process an IP packet (look at its header, IP destination) before routing it along
