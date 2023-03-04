@@ -415,7 +415,7 @@ TLS uses a combination of symmetric and asymmetric cryptography
 - After recieving `ClientHello`, server respondes with `ServerHello` message
   - Reponse sets TLS protocol version and Cipher Suite, and also contains **certificate that contains a public key** and a `ServerDone` marker
 - After client gets message with `ServerHelloDone`, it inititates the key exchange process
-  - Uses server's public key to encrypt a key gen for the symmetric key it wants to use for future message encryption
+  - Uses server's public key to encrypt a key gen called the "Pre-master secret" fo key it wants to use for future symmetric key encryption
   - In the same message, it includes a `ChangeCipherSpec` flag to indicate to switch to using the symmetric key, as well as a `Finished` flag to indicate the handshake is done
 
 **Note about the cipher suite**
