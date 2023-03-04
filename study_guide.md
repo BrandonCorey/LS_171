@@ -283,7 +283,7 @@ Query strings have some additional syntax, for example, a space between words ca
 ## HTTP ##
 ### What are HTTP requests and reponses ###
 HTTP - the set of rules which provide uniformity to the way resources on the web are transferred between applications
-  - **Requests** --> This is an HTTP message sent a client to a server
+  - **Requests** --> This is an HTTP message sent from a client to a server
   - **Responses** --> This is an HTTP message sent from a server to a client
 
 **Request reponse protocol** - client makes request to server using HTTP and waits for the response
