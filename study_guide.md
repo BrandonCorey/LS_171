@@ -94,11 +94,13 @@ This layer and its protocols are concerned with the transfer of data between net
 **IP Addresses (IPv4)**
 IP addresses are addresses used to identify networks
 - They are logical in nature, and hierarchical
-- They are not tied to a specific devise, but are assigned as needed to an available range designated to the network
+- A unique address used to locate a device on the internet.
+- They are not tied to a specific device, but are assigned as needed to an available range designated to the network
   - This range is defined within a hierarchy, and subnetworks of the main network fall within this range, as well as each device
   - Splitting of a network into small subnetworks is called **subnetting**
 - The addresses are 32 bits long and are divided into four sections of 8 bits
   - In decimal format, each of these four sections range from 0-255
+  - A group of 8 sets of hexadecimal characters, with different adjacent combinations of those 8 sets representing different aspects of a location on the network.
 
 e.g if a networks address is 109.168.172.0, the range of IPs it can assign is 109.168.172.1 --> 109.168.172.254
   **- This means we can use the first 3 sections of an IP address to determine which network it belongs to**
