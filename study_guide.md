@@ -274,6 +274,7 @@ parameters: `?item=book`
 
 ### Understand URL encoding ###
 URLs are designed to only accept certain characters in the standard 128 character ACII set. Anything else must be encoded (replaced with other characters)
+- Encoding lets us represent non-valid URL characters using certain codes
 - space --> `%20`
 - $ --> `%24`
 - £ --> `%C2%A3`
