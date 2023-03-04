@@ -306,7 +306,7 @@ Used when we want to iniate some action on the server or send data to the server
 - Allows us to send much larger information that with query strings
 - Data sent with a `POST` is contained within the `HTTP` body
 
-**Components of HTTP Requests**
+**Components of HTTP Requests: **
 Method + URL + HTTP version + Headers + Body
 - METHOD + URL + HTTP version --> is referred to as the **request line** and is the first line of the request
   - Method - A set of meta-data we include in our request to give the server info on how to handle it
@@ -318,7 +318,7 @@ Method + URL + HTTP version + Headers + Body
   - `Connection` specifies whether or not to keep the connection open after a request and repsponse cycle has completed
   - `Content-Length` is length of body is bytes
 
-**Components of HTTP Response**
+**Components of HTTP Response: **
 status code + status text + HTTP version + Headers + Body
 - **Status line** includes HTTP version, a status code, and status text
 - Body includes any HTML, JSON, images, xml etc..
