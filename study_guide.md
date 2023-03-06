@@ -112,6 +112,9 @@ A port is an identifier for a specific process running on a host. It is represen
 - 1024-49151 --> registered ports (by private entities like Mircosoft, IBM etc...), sometimes used for _ephemeral_ ports
 - 49152-65535 --> dynamic ports/private ports, cannot be registered for a specific use. Can be customized for services or allocated as _ephemeral_ ports
 
+**Ephermeral Port**
+These are temporary ports, allocated for only a short period of time for a communication session
+
 ### DNS (Domain Name Systen) ###
 A distributed database that translates domain names to an IP address, which can then be used to make a request to a server
 - Before sending HTTP request so server, client will commonly send DNS request to DNS server to resolve domain name used in GET request
