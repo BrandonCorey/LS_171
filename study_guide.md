@@ -336,6 +336,8 @@ Three digit numbers that the server sends back after recieving a request signify
   - ex) a user enters a URL in a browser and the server serves the HTML without any issues,
 - 302 --> Found - The requested resource has changed temporarily. Usually results in a redirect
   - ex) a user enters a URL in a browser and is redirected to a different webpage based on the "Location" header in the returned response,
+- 304 "Not Modified" - the requested resource has not been modified since the last time it was accessed by the client.
+  - ex) a request is made for a resource that the browser still has in its cache
 - 404 --> Not Found - The requested resource cannot be found
   - ex) a user enters a URL in a browser and the resource is not found by any DNS servers within the hierarchy that was routed through,
 - 500 --> Internal Server Error - The server has encountered a generic error
